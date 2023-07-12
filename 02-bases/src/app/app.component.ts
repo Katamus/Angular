@@ -7,5 +7,5 @@ import { count } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public title:string = 'Hola Mundo';
+public title:string = 'Hola Mundo';
 }

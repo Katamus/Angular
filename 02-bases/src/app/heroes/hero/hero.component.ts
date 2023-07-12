@@ -5,11 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.css']
 })
-export class HeroComponent implements OnInit {
+export class HeroComponent  {
 
-  constructor() { }
+  public name:  string = 'IronMan';
+  public age:   number = 45;
 
-  ngOnInit(): void {
-  }
+  
 
+  
 }

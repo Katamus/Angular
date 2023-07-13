@@ -12,5 +12,9 @@ export class ListComponent {
   public characterList:Character[] = [{
     name:'Trunks',
     power:10
-  }]
+  }];
+
+  onDeleteCharacter(index:number):void{
+    console.log(index);
+  }
 }

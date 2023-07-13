@@ -22,8 +22,7 @@ export class NameComponent {
     ];
 
     onNewCharacter(character:Character):void{
-        console.log('Main');
-        console.log(character);
+        this.characters.push(character);
     }
 
 }

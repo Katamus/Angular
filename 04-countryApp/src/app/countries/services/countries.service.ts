@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http'
-import { Observable, catchError, map, of, tap } from "rxjs";
+import { Observable, catchError, delay, map, of, tap } from "rxjs";
 import { Country } from "../interfaces/country";
 
 
@@ -12,34 +12,27 @@ export class CountriesService {
 
     constructor(private httpClient:HttpClient){}
 
-    searchCapital(term:string):Observable<Country[]>{
-        const url = `${this.apiUrl}/capital/${term}`;
+    private getCountriesRequest(url:string):Observable<Country[]>{
         return this.httpClient.get<Country[]>(url).pipe(
             catchError(error=> {
-                console.log(error);
                 return of([]);
             } )
         );
+    }
+
+    searchCapital(term:string):Observable<Country[]>{
+        const url = `${this.apiUrl}/capital/${term}`;
+        return this.getCountriesRequest(url);
     }
 
     searchCountry(term:string):Observable<Country[]>{
         const url = `${this.apiUrl}/name/${term}`;
-        return this.httpClient.get<Country[]>(url).pipe(
-            catchError(error=> {
-                console.log(error);
-                return of([]);
-            } )
-        );
+        return this.getCountriesRequest(url);
     }
 
     searchRegion(term:string):Observable<Country[]>{
         const url = `${this.apiUrl}/region/${term}`;
-        return this.httpClient.get<Country[]>(url).pipe(
-            catchError(error=> {
-                console.log(error);
-                return of([]);
-            } )
-        );
+        return this.getCountriesRequest(url);
     }
 
     searchCountryByAlphaCde(term:string):Observable<Country|null>{
@@ -47,9 +40,9 @@ export class CountriesService {
         return this.httpClient.get<Country[]>(url).pipe(
             map(countries=>countries.length > 0 ? countries[0] : null),
             catchError(error=> {
-                console.log(error);
                 return of(null);
-            })
+            }),
+            delay(2000),
         );
     }
 

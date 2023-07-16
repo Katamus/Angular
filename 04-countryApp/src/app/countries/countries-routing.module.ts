@@ -7,6 +7,11 @@ import { CountryPageComponent } from "./pages/country-page/country-page.componen
 
 const routes:Routes = [
     {
+        path:"",
+        component:ByCapitalPageComponent
+    }
+    ,
+    {
         path:"by-capital",
         component:ByCapitalPageComponent
     },

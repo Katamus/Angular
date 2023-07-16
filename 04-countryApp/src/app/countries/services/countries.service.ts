@@ -41,4 +41,14 @@ export class CountriesService {
             } )
         );
     }
+
+    searchCountryByAlphaCde(term:string):Observable<Country[]>{
+        const url = `${this.apiUrl}/alpha/${term}`;
+        return this.httpClient.get<Country[]>(url).pipe(
+            catchError(error=> {
+                console.log(error);
+                return of([]);
+            } )
+        );
+    }
 }

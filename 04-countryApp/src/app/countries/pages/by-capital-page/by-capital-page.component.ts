@@ -6,11 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class ByCapitalPageComponent implements OnInit {
+export class ByCapitalPageComponent  {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  
+  serchByCapital(term:string){
+    console.log("Desde byCapitalPage");
+    console.log({term});
   }
 
 }

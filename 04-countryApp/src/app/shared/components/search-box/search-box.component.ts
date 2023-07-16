@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'shared-search-box',
@@ -8,7 +8,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SearchBoxComponent  {
 
+  @Output()
+  onValue:EventEmitter<string> = new EventEmitter<string>();
+
   @Input()
   placeholder:string = "";
 
+  /*
+  function OutPut(): (target: SearchBoxComponent, propertyKey: "placeholder") => void {
+    throw new Error('Function not implemented.');
+  }*/
+  
+  emitValue(arg:string):void{
+    this.onValue.emit(arg);
+  }
 }
+

@@ -7,13 +7,13 @@
 <div *ngIf="country; else loading" >
     <div class="row">
         <div class="col-12">
-            <h2>País: <strong>{{country.name?.common}}</strong></h2>
+            <h2>País: <strong>{{country.name.common}}</strong></h2>
         </div>
     </div>
     <div class="row">
         <div class="col-4">
             <h3>Bandera</h3>
-            <img [src]="country.flags.svg" alt="country.name?.common" class="img-thumbnail">
+            <img [src]="country.flags.svg" alt="country.name.common" class="img-thumbnail">
         </div>
         <div class="col">
             <h3>Mas información</h3>
@@ -31,30 +31,30 @@
                 <h3>Traducciones</h3>
                 <div class="d-flex flex-wrap">
                     <span class="badge bg-primary m-1">
-                        {{country.translations['ara']?.common}}
+                        {{country.translations['ara'].common}}
                     </span>
                     <span class="badge bg-primary m-1">
-                        {{country.translations['bre']?.common}}
+                        {{country.translations['bre'].common}}
                     </span>
                     <span class="badge bg-primary m-1">
-                        {{country.translations['ces']?.common}}
+                        {{country.translations['ces'].common}}
                     </span>
                     <span class="badge bg-primary m-1">
-                        {{country.translations['cym']?.common}}
+                        {{country.translations['cym'].common}}
                     </span>
                     <span class="badge bg-primary m-1">
-                        {{country.translations['deu']?.common}}
+                        {{country.translations['deu'].common}}
                     </span>
                     <span class="badge bg-primary m-1">
-                        {{country.translations['est']?.common}}
+                        {{country.translations['est'].common}}
                     </span>
                     <span class="badge bg-primary m-1">
 fin                    </span>
                     <span class="badge bg-primary m-1">
-                        {{country.translations['ita']?.common}}
+                        {{country.translations['ita'].common}}
                     </span>
                     <span class="badge bg-primary m-1">
-                        {{country.translations['kor']?.common}}
+                        {{country.translations['kor'].common}}
                     </span>
                 </div>
             </div>

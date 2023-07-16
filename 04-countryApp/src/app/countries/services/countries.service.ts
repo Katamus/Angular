@@ -21,4 +21,24 @@ export class CountriesService {
             } )
         );
     }
+
+    searchCountry(term:string):Observable<Country[]>{
+        const url = `${this.apiUrl}/name/${term}`;
+        return this.httpClient.get<Country[]>(url).pipe(
+            catchError(error=> {
+                console.log(error);
+                return of([]);
+            } )
+        );
+    }
+
+    searchRegion(term:string):Observable<Country[]>{
+        const url = `${this.apiUrl}/region/${term}`;
+        return this.httpClient.get<Country[]>(url).pipe(
+            catchError(error=> {
+                console.log(error);
+                return of([]);
+            } )
+        );
+    }
 }

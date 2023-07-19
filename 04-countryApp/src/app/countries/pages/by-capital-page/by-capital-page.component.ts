@@ -23,8 +23,5 @@ export class ByCapitalPageComponent  {
         this.countries = countries;
         this.isLoading = false
       });
-    
-    ;
   }
-
 }

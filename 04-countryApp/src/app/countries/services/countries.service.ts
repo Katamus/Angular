@@ -16,7 +16,7 @@ export class CountriesService {
             term:'',
             countries:[]
         },
-        byCountry:{
+        byCountries:{
             term:'',
             countries:[]
         },
@@ -26,7 +26,9 @@ export class CountriesService {
         }
     }
 
-    constructor(private httpClient:HttpClient){}
+    constructor(private httpClient:HttpClient){
+
+    }
 
     private getCountriesRequest(url:string):Observable<Country[]>{
         return this.httpClient.get<Country[]>(url).pipe(
@@ -38,7 +40,11 @@ export class CountriesService {
 
     searchCapital(term:string):Observable<Country[]>{
         const url = `${this.apiUrl}/capital/${term}`;
-        return this.getCountriesRequest(url);
+        return this.getCountriesRequest(url)
+            .pipe(
+                tap(countries => this.cacheStore.byCapital = {term,countries} )
+            )
+        ;
     }
 
     searchCountry(term:string):Observable<Country[]>{

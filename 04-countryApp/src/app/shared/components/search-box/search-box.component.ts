@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Subject, debounceTime } from 'rxjs';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Subject, Subscription, debounceTime } from 'rxjs';
 
 @Component({
   selector: 'shared-search-box',
@@ -7,9 +7,10 @@ import { Subject, debounceTime } from 'rxjs';
   styles: [
   ]
 })
-export class SearchBoxComponent implements OnInit  {
-
+export class SearchBoxComponent implements OnInit, OnDestroy  {
+  
   private debouncer: Subject<string> = new Subject<string>();
+  private debouncerSuscription?:Subscription;
 
   @Output()
   onValue:EventEmitter<string> = new EventEmitter<string>();
@@ -21,7 +22,7 @@ export class SearchBoxComponent implements OnInit  {
   placeholder:string = "";
 
   ngOnInit(): void {
-    this.debouncer
+    this.debouncerSuscription = this.debouncer
     .pipe(
       debounceTime(300)
     )
@@ -29,6 +30,12 @@ export class SearchBoxComponent implements OnInit  {
       this.onDebounce.emit(value);
     })
   }
+
+  ngOnDestroy(): void {
+    console.log("Destruido");
+    this.debouncerSuscription?.unsubscribe();
+  }
+
 
   /*
   function OutPut(): (target: SearchBoxComponent, propertyKey: "placeholder") => void {

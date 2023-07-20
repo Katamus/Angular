@@ -13,15 +13,15 @@
         ></p-button>
     </div>
     <div class="p-toolbar-group-end">
-        <p-button class="mr-2" label="Por nombre" icon="pi pi-sort" styleClass="p-button-success"></p-button>
-        <p-button class="mr-2" label="Por volar" icon="pi pi-sort"  styleClass="p-button-danger"></p-button>
-        <p-button class="mr-2" label="Por color" icon="pi pi-sort"  styleClass="p-button-help"></p-button>       
+        <p-button class="mr-2" label="Por nombre" icon="pi pi-sort" styleClass="p-button-success"   (onClick)="changeOrder('name')"></p-button>
+        <p-button class="mr-2" label="Por volar" icon="pi pi-sort"  styleClass="p-button-danger"    (onClick)="changeOrder('canFly')"></p-button>
+        <p-button class="mr-2" label="Por color" icon="pi pi-sort"  styleClass="p-button-help"      (onClick)="changeOrder('color')"></p-button>       
     </div>
 </p-toolbar>
 <div class="grid">
     <div class="col mt-2">     
         <p-panel header="Héroes">
-            <p-table [value]="heroes | shortBy:'canFly'" [tableStyle]="{ 'min-width': '50rem' }">
+            <p-table [value]="heroes | shortBy:orderyBy" [tableStyle]="{ 'min-width': '50rem' }">
                 <ng-template pTemplate="header">
                     <tr>
                         <th>Nombre</th>

@@ -10,6 +10,11 @@ import { Color, Hero } from '../../interfaces/Hero.interface';
 })
 export class OrderComponent {
   items: MenuItem[] | undefined;
+  public orderyBy:keyof Hero | undefined | '' = 'canFly'
+
+  changeOrder(value: keyof Hero){
+    this.orderyBy = value;
+  }
 
   public isUpperCase:boolean = false;
 

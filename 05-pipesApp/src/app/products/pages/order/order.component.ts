@@ -10,6 +10,12 @@ import { MenuItem } from 'primeng/api';
 export class OrderComponent {
   items: MenuItem[] | undefined;
 
+  public isUpperCase:boolean = false;
+
+  toggleUpperCase():void{
+    this.isUpperCase = !this.isUpperCase;
+  }
+
   ngOnInit() {
     this.items = [
         {

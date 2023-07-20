@@ -8,7 +8,7 @@ import { UncommonPageComponent } from './pages/uncommon-page/uncommon-page.compo
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { OrderComponent } from './pages/order/order.component';
 import { ToggleCasePipe } from './pipes/toggle-case.pipe';
-import { SplitButtonModule } from 'primeng/splitbutton';
+import { CanFlyPipe } from './pipes/can-fly.pipe';
 
 
 
@@ -18,15 +18,17 @@ import { SplitButtonModule } from 'primeng/splitbutton';
     NumbersPageComponent,
     UncommonPageComponent,
     OrderComponent,
-    ToggleCasePipe
+    ToggleCasePipe,
+    CanFlyPipe
   ],
   imports: [
     CommonModule,
     ProductsRoutingModule,
     PrimeNgModule,
-    SplitButtonModule
+    
   ],exports:[
-    ToggleCasePipe
+    ToggleCasePipe,
+    CanFlyPipe
   ]
 })
 export class ProductsModule { }

@@ -28,7 +28,7 @@ export class CountriesService {
     }
 
     constructor(private httpClient:HttpClient){
-        this.loadFromLoadLocalStorage();
+        //this.loadFromLoadLocalStorage();
     }
 
     private saveToLocalStorage(){

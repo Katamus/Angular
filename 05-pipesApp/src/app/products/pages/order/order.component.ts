@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { Color, Hero } from '../../interfaces/Hero.interface';
 
 @Component({
   selector: 'products-order',
@@ -15,6 +16,30 @@ export class OrderComponent {
   toggleUpperCase():void{
     this.isUpperCase = !this.isUpperCase;
   }
+
+  public heroes:Hero[] = [
+    {
+      name: 'SuperMan',
+      canFly: true,
+      color:Color.blue
+    },
+    {
+      name: 'Batman',
+      canFly: false,
+      color:Color.black
+    },
+    {
+      name: 'Daredevil',
+      canFly: false,
+      color:Color.red
+    },
+    {
+      name: 'Batman',
+      canFly: false,
+      color:Color.green
+    }
+
+  ]
 
   ngOnInit() {
     this.items = [

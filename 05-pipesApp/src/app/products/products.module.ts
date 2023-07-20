@@ -9,6 +9,7 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { OrderComponent } from './pages/order/order.component';
 import { ToggleCasePipe } from './pipes/toggle-case.pipe';
 import { CanFlyPipe } from './pipes/can-fly.pipe';
+import { ShortByPipe } from './pipes/short-by.pipe';
 
 
 
@@ -19,7 +20,8 @@ import { CanFlyPipe } from './pipes/can-fly.pipe';
     UncommonPageComponent,
     OrderComponent,
     ToggleCasePipe,
-    CanFlyPipe
+    CanFlyPipe,
+    ShortByPipe
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { CanFlyPipe } from './pipes/can-fly.pipe';
     
   ],exports:[
     ToggleCasePipe,
-    CanFlyPipe
+    CanFlyPipe,
+    ShortByPipe
   ]
 })
 export class ProductsModule { }

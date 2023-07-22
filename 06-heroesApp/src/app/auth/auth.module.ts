@@ -15,9 +15,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
-  ],exports: [
-    LayoutPageComponent
+    AuthRoutingModule,
   ]
 })
 export class AuthModule { }

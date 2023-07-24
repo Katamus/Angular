@@ -5,6 +5,7 @@ import { LayoutPageComponent } from "./pages/layout-page/layout-page.component";
 import { MaterialModule } from '../material/material.module';
 import { ListPageComponent } from "./pages/list-page/list-page.component";
 import { CardComponent } from './components/card/card.component';
+import { HeroImagePipe } from './pipes/hero-image.pipe';
 
 
 
@@ -12,7 +13,8 @@ import { CardComponent } from './components/card/card.component';
   declarations: [
     LayoutPageComponent,
     ListPageComponent,
-    CardComponent
+    CardComponent,
+    HeroImagePipe
   ],
   imports: [
     CommonModule,

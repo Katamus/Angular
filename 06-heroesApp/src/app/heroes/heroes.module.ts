@@ -9,6 +9,7 @@ import { MaterialModule } from '../material/material.module';
 import { HeroPageComponent } from "./pages/hero-page/hero-page.component";
 import { SearchPageComponent } from "./pages/search-page/search-page.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { NewPageComponent } from "./pages/new-page/new-page.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     CardComponent,
     HeroImagePipe,
     HeroPageComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    NewPageComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Publisher } from '../../interfaces/hero.interface';
 
 @Component({
   selector: 'app-new-page',
@@ -8,6 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewPageComponent implements OnInit {
 
+  public heroForm = new FormGroup({
+    id: new FormControl<string>(''),
+    superhero: new FormControl<string>('',{nonNullable:true}),
+    publisher: new FormControl<Publisher>(Publisher.DCComics),
+    alter_ego: new FormControl(''),
+    first_appearance: new FormControl(''),
+    characters: new FormControl(''),
+    alt_img: new FormControl(''),
+  });
 
   public publishers = [
     {

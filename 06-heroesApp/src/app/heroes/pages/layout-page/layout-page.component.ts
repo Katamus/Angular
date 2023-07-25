@@ -11,7 +11,7 @@ export class LayoutPageComponent implements OnInit {
   public sidebarItems = [
     {label: 'Listado',icon:'label',url: './list'},
     {label: 'Añadir',icon:'add',url: './new-hero'},
-    {label: 'Buscar',icon:'search',url: './list'}
+    {label: 'Buscar',icon:'search',url: './search'}
   ]
   constructor() { 
 

@@ -7,6 +7,8 @@ import { CardComponent } from './components/card/card.component';
 import { HeroImagePipe } from './pipes/hero-image.pipe';
 import { MaterialModule } from '../material/material.module';
 import { HeroPageComponent } from "./pages/hero-page/hero-page.component";
+import { SearchPageComponent } from "./pages/search-page/search-page.component";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,10 +16,12 @@ import { HeroPageComponent } from "./pages/hero-page/hero-page.component";
     ListPageComponent,
     CardComponent,
     HeroImagePipe,
-    HeroPageComponent
+    HeroPageComponent,
+    SearchPageComponent
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     HeroesRoutingModule,
     MaterialModule
   ]

@@ -29,6 +29,22 @@ export class AuthService{
 
     }
 
+    checkAuthentication():Observable<boolean>{
+
+        if(!localStorage.getItem('token')) return of(false);
+
+        const token = localStorage.getItem('token');
+
+
+
+
+        return this.http.get<User>(`${this.baseUrl}/users/1`).pipe(
+            tap(user => this.user = user),
+            map(user => !!user),
+            catchError(error => of(false))
+        );
+    }
+
     logout(){
         this.user = undefined;
         localStorage.clear();

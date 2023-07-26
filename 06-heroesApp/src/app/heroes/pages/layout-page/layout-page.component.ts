@@ -30,11 +30,11 @@ export class LayoutPageComponent implements OnInit {
 
   onLogout():void {
     this.authService.logout();
+    this.router.navigate(['/auth/login']);
   }
 
   get user():User|undefined{
     return this.authService.currentUser;
-    this.router.navigate(['/auth/login']);
   }
 
 }

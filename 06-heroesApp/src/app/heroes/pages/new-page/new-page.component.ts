@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Publisher } from '../../interfaces/hero.interface';
+import { Hero, Publisher } from '../../interfaces/hero.interface';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-new-page',
@@ -28,12 +29,18 @@ export class NewPageComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(private heroService: HeroesService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit():void {
+
+    if(this.heroForm.invalid) return;
+
+    //this.heroService.updateHero(this.heroForm.value)
+
+
     console.log(
       {
         formIsValid: this.heroForm.valid,
@@ -41,6 +48,11 @@ export class NewPageComponent implements OnInit {
       }
     );
     
+  }
+
+  get currentHero():Hero {
+    const hero = this.heroForm.value as Hero;
+    return hero;
   }
 
 }

@@ -53,10 +53,12 @@
                         <mat-label>Creador</mat-label>
                             <mat-select 
                                 formControlName="publisher"
-                                required="">
-                                <mat-option *ngFor="let publisher of publishers" [value]="publisher.id">
-                                    {{publisher.desc }}
-                                </mat-option>
+                                required>
+                                <mat-option *ngFor="let item of publishers" 
+                                [value]="item.id"
+                            >
+                                {{item.desc }}
+                            </mat-option>
                             </mat-select>
                     </mat-form-field>
 

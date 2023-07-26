@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Hero, Publisher } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-new-page',
@@ -22,16 +24,25 @@ export class NewPageComponent implements OnInit {
   });
 
   public publishers = [
-    {
-      id: 'Dc Comics',desc:"DC - Comics"
-    },{
-      id: 'Marvel Comics',desc:"Marvel - Comics"
-    }
-  ]
+    { id: 'DC Comics', desc: 'DC - Comics' },
+    { id: 'Marvel Comics', desc: 'Marvel - Comics' },
+  ];
 
-  constructor(private heroService: HeroesService) { }
+  constructor(private heroService: HeroesService,private activatedRoute:ActivatedRoute, private router:Router ){ }
 
   ngOnInit(): void {
+    if(!this.router.url.includes('edit')) return;
+
+    this.activatedRoute.params
+      .pipe(
+        switchMap(({id})=>this.heroService.getHeroesById(id))
+      ).subscribe(hero=>{
+        if(!hero) {
+          return this.router.navigateByUrl('/');
+        }
+        this.heroForm.reset(hero);
+        return;
+      });
   }
 
   onSubmit():void {

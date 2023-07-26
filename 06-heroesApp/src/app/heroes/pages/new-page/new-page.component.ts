@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Hero, Publisher } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { filter, switchMap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialodComponent } from '../../components/confirm-dialod/confirm-dialod.component';
@@ -93,6 +93,15 @@ export class NewPageComponent implements OnInit {
       data:this.heroForm.value
     })
 
+    dialogRef.afterClosed().pipe(
+      filter( (result:boolean) => result),
+      switchMap(()=> this.heroService.deleteHero(this.currentHero.id)),
+      filter( (wasDeleted:boolean) => wasDeleted),
+    ).subscribe(()=>{
+      this.router.navigate(['/heroes']);
+    })
+
+    /*
     dialogRef.afterClosed().subscribe(result=>{
       if(!result) return;
 
@@ -100,7 +109,7 @@ export class NewPageComponent implements OnInit {
         this.router.navigate(['/heroes']);
       });
     });
-
+    */
   }
 
 }

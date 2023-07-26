@@ -10,6 +10,7 @@ import { HeroPageComponent } from "./pages/hero-page/hero-page.component";
 import { SearchPageComponent } from "./pages/search-page/search-page.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { NewPageComponent } from "./pages/new-page/new-page.component";
+import { ConfirmDialodComponent } from './components/confirm-dialod/confirm-dialod.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NewPageComponent } from "./pages/new-page/new-page.component";
     HeroImagePipe,
     HeroPageComponent,
     SearchPageComponent,
-    NewPageComponent
+    NewPageComponent,
+    ConfirmDialodComponent
   ],
   imports: [
     CommonModule,

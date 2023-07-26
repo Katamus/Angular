@@ -38,20 +38,26 @@ export class NewPageComponent implements OnInit {
 
     if(this.heroForm.invalid) return;
 
-    //this.heroService.updateHero(this.heroForm.value)
+    if(this.currentHero.id){
+      this.heroService.updateHero(this.currentHero)
+      .subscribe(hero=>{
+        console.log(hero);
+      });
+      return;
+    }
 
-
-    console.log(
-      {
-        formIsValid: this.heroForm.valid,
-        value:this.heroForm.value
-      }
-    );
+    this.heroService.addHero(this.currentHero)
+      .subscribe(hero=>{
+        console.log(hero);
+        
+      })
     
   }
 
   get currentHero():Hero {
     const hero = this.heroForm.value as Hero;
+
+    
     return hero;
   }
 

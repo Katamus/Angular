@@ -10,8 +10,9 @@ const routes: Routes = [{
         component:RegisterPageComponent
       },{
         path:'**',
-        redirectTo: 'sing_up'
-      }    ]
+        redirectTo: 'sing-up'
+      }
+    ]
 }];
 
 @NgModule({

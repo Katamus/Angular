@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Region } from '../interfaces/country.interface';
+import { Region, Country, SmallCountry } from '../interfaces/country.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class CountriesService {
 
   get regions():Region[] {
     return [...this._regions]
+  }
+
+  getCountryByRegion(region:Region):Observable<SmallCountry[]>{
+
   }
 
 

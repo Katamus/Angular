@@ -7,9 +7,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CountriesService {
-
-  public countryByRegion:SmallCountry[] = [];
-
   private baseUrl = 'https://restcountries.com/v3.1/';
 
   constructor(private http:HttpClient) { }

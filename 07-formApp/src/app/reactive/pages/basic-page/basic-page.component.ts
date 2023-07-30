@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { ValidatorService } from 'src/app/shared/service/validators.service';
 
 const rtx5090 = {
   name: 'RTX 5090',
@@ -22,7 +23,7 @@ export class BasicPageComponent implements OnInit {
   // });
 
   
-  constructor(private fb:FormBuilder) {}
+  constructor(private fb:FormBuilder, private validatorService:ValidatorService) {}
 
   public myForm:FormGroup = this.fb.group({
     name:['',[Validators.required,Validators.minLength(3)]],

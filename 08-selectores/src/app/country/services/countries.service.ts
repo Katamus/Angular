@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Region, Country, SmallCountry } from '../interfaces/country.interface';
-import { Observable, count, map, of, tap } from 'rxjs';
+import { Observable, combineLatest, count, map, of, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -48,6 +48,22 @@ export class CountriesService {
         borders: country.borders ?? []
 
       })))
+  }
+
+  getCountryBordesByCodes(bordes:string[]):Observable<SmallCountry[]>{
+    if(!bordes || bordes.length === 0) return of([]);
+
+    const countryRequest:Observable<SmallCountry>[] = [];
+
+    bordes.forEach(code => {
+      const request = this.getCountryByAlphaCode(code);
+      countryRequest.push(request);
+    });
+
+    return combineLatest(countryRequest);
+
+
+
   }
 
 

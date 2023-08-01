@@ -23,7 +23,7 @@ import { ZoomRagePageComponent } from './pages/zoom-rage-page/zoom-rage-page.com
   ],
   imports: [
     CommonModule,
-    MapsRoutingModule
+    MapsRoutingModule,
   ]
 })
 export class MapsModule { }

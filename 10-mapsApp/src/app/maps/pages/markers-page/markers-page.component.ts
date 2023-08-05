@@ -2,12 +2,19 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } fr
 
 import {LngLat, Map, Marker} from 'mapbox-gl';
 
+interface MarkerAndColor {
+  color:string,
+  marker:Marker
+}
+
 @Component({
   selector: 'app-markers-page',
   templateUrl: './markers-page.component.html',
   styleUrls: ['./markers-page.component.css']
 })
 export class MarkersPageComponent  implements AfterViewInit, OnDestroy {
+
+  public markerAndColor: MarkerAndColor[] = [];
 
 
   @ViewChild('map') divMap?:ElementRef;
@@ -57,8 +64,15 @@ export class MarkersPageComponent  implements AfterViewInit, OnDestroy {
       draggable:true
     })
       .setLngLat(lngLat)
-      .addTo(this.map)
+      .addTo(this.map);
 
+    this.markerAndColor.push({marker,color});
+
+  }
+
+  delectMarker(index:number):void {
+    this.markerAndColor[index].marker.remove();
+    this.markerAndColor.splice(index,1);
   }
 
 

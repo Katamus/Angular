@@ -80,5 +80,12 @@ export class MarkersPageComponent  implements AfterViewInit, OnDestroy {
     this.map?.remove();
   }
 
+  flyto(marker:Marker){
+    this.map?.flyTo({
+      zoom:14,
+      center:marker.getLngLat()
+    })
+  }
+
 
 }

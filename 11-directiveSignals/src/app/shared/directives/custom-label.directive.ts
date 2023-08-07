@@ -38,16 +38,28 @@ export class CustomLabelDirective implements OnInit {
 
   setErrorMessage():void {
     if(!this.htmlElement) return;
+
+    let error = "";
     if(!this._error){
-      this.htmlElement.nativeElement.innerHTML = 'Hola mundo';
+      this.setErrorMessageHtml(error);
       return;
     } 
     const errors = Object.keys(this._error);
-    console.log(errors);
     if(errors.includes('required')){
       this.htmlElement.nativeElement.innerText = 'Este campo es requerido';
-      return
+    } else if(errors.includes('minlength')){
+      error = `Este campo es debe tener un longitud de ${this._error["minlength"]["requiredLength"]}, longitud actual de ${this._error["minlength"]["actualLength"]}`;
+    } else if(errors.includes('email')){
+      error = `Este campo no es un correo`;
     }
+    this.setErrorMessageHtml(error);
+    return;
+  }
+
+  setErrorMessageHtml(value:string):void{
+    if(!this.htmlElement) return;
+    this.htmlElement.nativeElement.innerText = value;
+    return;
   }
 
 

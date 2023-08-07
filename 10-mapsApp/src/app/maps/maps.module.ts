@@ -9,13 +9,12 @@ import { FullScreenPageComponent } from './pages/full-screen-page/full-screen-pa
 import { MarkersPageComponent } from './pages/markers-page/markers-page.component';
 import { PropertiesPageComponent } from './pages/properties-page/properties-page.component';
 import { ZoomRagePageComponent } from './pages/zoom-rage-page/zoom-rage-page.component';
-
+import { CounterPageComponent } from '../alone/components/counter-page/counter-page.component';
 (mapboxgl as any ).accessToken = 'pk.eyJ1IjoiY3IxNWNhaHUiLCJhIjoiY2xrcmxwbXozMHdocjNobnQ5NzluM2szbSJ9.VN9MyHUEA9H77rH60jLgEg';
 
 @NgModule({
   declarations: [
     MinMapComponent,
-    SideMenuComponent,
     MapsLayoutComponent,
     FullScreenPageComponent,
     MarkersPageComponent,
@@ -25,6 +24,8 @@ import { ZoomRagePageComponent } from './pages/zoom-rage-page/zoom-rage-page.com
   imports: [
     CommonModule,
     MapsRoutingModule,
+    CounterPageComponent,
+    SideMenuComponent
   ]
 })
 export class MapsModule { }

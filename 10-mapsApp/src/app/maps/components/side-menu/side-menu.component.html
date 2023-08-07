@@ -1,9 +1,12 @@
-<ul class="list-group">
-    <li *ngFor="let item of menuItems" class="list-group-item"
-        [routerLink]="[item.route]"
-        routerLinkActive="active"
-        ngClass="list-group-item"
-    >
-        {{item.name}}
-    </li>
-</ul>
+
+
+    <ul class="list-group">
+        <li *ngFor="let item of menuItems" class="list-group-item"
+            [routerLink]="[item.route]"
+            routerLinkActive="active"
+            ngClass="list-group-item"
+        >
+            {{item.name}}
+        </li>
+    </ul>
+

@@ -7,6 +7,8 @@ import { Model } from 'mongoose';
 import * as bcryptjs from 'bcryptjs';
 import { LoginDto } from './dto/login.dto';
 import { log } from 'console';
+import { JwtService } from '@nestjs/jwt';
+import { JwtPayload } from './interfaces/jwt-payload';
 
 @Injectable()
 export class AuthService {
@@ -14,6 +16,7 @@ export class AuthService {
   constructor(
     @InjectModel(User.name)
     private userModel:Model<User>,
+    private jwtSerice: JwtService
   ){
   }
 
@@ -62,7 +65,7 @@ export class AuthService {
 
     return {
       user: rest,
-      token: 'ABC-123'
+      token: this.getJwtoke({id:user.id})
     }
   }
 
@@ -80,5 +83,10 @@ export class AuthService {
 
   remove(id: number) {
     return `This action removes a #${id} auth`;
+  }
+
+  getJwtoke(payload:JwtPayload){
+    const token = this.jwtSerice.sign(payload);
+    return token;
   }
 }

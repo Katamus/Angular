@@ -9,6 +9,7 @@ import { LoginDto } from './dto/login.dto';
 import { log } from 'console';
 import { JwtService } from '@nestjs/jwt';
 import { JwtPayload } from './interfaces/jwt-payload';
+import { LoginResponse } from './interfaces/logi-respose';
 
 @Injectable()
 export class AuthService {
@@ -28,15 +29,6 @@ export class AuthService {
         ...userData
       });
 
-      
-      
-      // 1- Encriptar el password
-      
-      // 2- Guardar el usuario
-      
-      // 3- Generar el JWT
-      
-      //const newUser = new this.userModel(createUserDto);
 
       await newUser.save();
       const { password:_, ...user } = newUser.toJSON();
@@ -49,7 +41,11 @@ export class AuthService {
     }
   }
 
-  async login(loginDto:LoginDto){
+  async register ():Promise<LoginResponse> {
+    
+  }
+
+  async login(loginDto:LoginDto):Promise<LoginResponse>{
 
     const {email,password} = loginDto;
     const user = await this.userModel.findOne({email});

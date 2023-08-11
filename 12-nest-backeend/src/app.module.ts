@@ -16,7 +16,6 @@ import { log } from 'console';
 export class AppModule {
 
   constructor(){
-    
   }
 
 }

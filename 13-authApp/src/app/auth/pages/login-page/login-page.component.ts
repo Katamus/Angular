@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth-service.service';
+import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
 

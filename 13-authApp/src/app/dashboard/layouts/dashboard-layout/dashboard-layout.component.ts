@@ -1,5 +1,5 @@
 import { Component, computed, inject } from '@angular/core';
-import { AuthService } from 'src/app/auth/services/auth-service.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   templateUrl: './dashboard-layout.component.html',

@@ -4,6 +4,7 @@ import Mapbox from 'mapbox-gl';
 import { PlacesResponse } from '../interfaces';
 import { Feature } from '../interfaces/places.interface';
 import { PlacesApiClient } from '../api';
+import { MapService } from './map.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,9 @@ export class PlacesService {
     return !!this.useLocation;
   }
 
-  constructor(private placesApi:PlacesApiClient) {
+  constructor(private placesApi:PlacesApiClient,
+    private mapService:MapService
+    ) {
     this.getUserLocation();
   }
 
@@ -61,6 +64,7 @@ export class PlacesService {
     .subscribe(resp=>{
       this.isLoadingPlaces = false;
       this.places = resp.features;
+      this.mapService.createMarkersPlaces(this.places);
     });
 
   }

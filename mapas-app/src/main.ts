@@ -4,7 +4,7 @@ import { AppModule } from './app/app.module';
 
 import Mapbox from 'mapbox-gl';
 
-Mapbox.accessToken = 'pk.eyJ1IjoiY3IxNWNhaHUiLCJhIjoiY2xrcmx6bjQzMXI1bTNjbzU5eHRuNm1pMCJ9.A3LzUtPyJ46q3aHTD9fUXg';
+Mapbox.accessToken = 'key del map box';
 
 if(!navigator.geolocation){
   alert('Navegador o soporta la Geolocation');
